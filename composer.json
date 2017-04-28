@@ -1,0 +1,14 @@
+{
+    "name": "noob/simple-menu-laravel",
+    "description": "Simple menu for laravel which loads menu from config file",
+    "require": {
+        "laravel/laravel": "5.*"
+    },
+    "authors": [
+        {
+            "name": "noob",
+            "email": "spider_tech@email.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
