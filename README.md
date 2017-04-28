@@ -20,9 +20,6 @@ composer require lavary/laravel-menu
 Now, append Laravel Menu service provider to `providers` array in `config/app.php`.
 
 
-
-Now, append Laravel Menu service provider to `providers` array in `config/app.php`.
-
 ```php
 <?php
 
@@ -58,16 +55,16 @@ At the end of `config/app.php` add `'SimpleMenu'    => 'noob\simple_menu_laravel
 This registers the package with Laravel and creates an alias called `SimpleMenu`.
 
 
-##functionality
+## Functionality
 
 Yet to do
 
 
-##todo
+## Todo
 
-*create config file for menu
-*create a method in Facade to display the menu route
-*create a menu in array with clidren etc
-*assign the menu to default route 
-*add comments to all files
-*invoke BreadCrumbs 
+* create config file for menu
+* create a method in Facade to display the menu route
+* create a menu in array with clidren etc
+* assign the menu to default route 
+* add comments to all files
+* invoke BreadCrumbs 
