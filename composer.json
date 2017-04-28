@@ -1,8 +1,14 @@
 {
-    "name": "noob/simple-menu-laravel",
+    "name": "noob/simple_menu_laravel",
     "description": "Simple menu for laravel which loads menu from config file",
+    "keywords": ["laravel", "simple menu","menu"],
     "require": {
-        "laravel/laravel": "5.*"
+        "illuminate/support": "~5"
+    },
+    "autoload": {
+        "psr-4": {
+            "noob\\simple_menu_laravel\\": "src/"
+        }
     },
     "authors": [
         {
@@ -10,5 +16,5 @@
             "email": "spider_tech@email.com"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
