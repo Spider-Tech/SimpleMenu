@@ -1,5 +1,8 @@
 # Simple Menu Laravel [![Build Status](https://travis-ci.org/Spider-Tech/SimpleMenu.svg?branch=master)](https://travis-ci.org/Spider-Tech/SimpleMenu.svg?branch=master) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Spider-Tech/SimpleMenu/issues)
 
+[![Latest Stable Version](https://poser.pugx.org/noob/simple_menu_laravel/v/stable)](https://packagist.org/packages/noob/simple_menu_laravel) [![Total Downloads](https://poser.pugx.org/noob/simple_menu_laravel/downloads)](https://packagist.org/packages/noob/simple_menu_laravel) [![Latest Unstable Version](https://poser.pugx.org/noob/simple_menu_laravel/v/unstable)](https://packagist.org/packages/noob/simple_menu_laravel) [![License](https://poser.pugx.org/noob/simple_menu_laravel/license)](https://packagist.org/packages/noob/simple_menu_laravel)
+
+
 A quick and easy way to create menus in [Laravel 5](http://laravel.com/)
 
 ## Documentation
