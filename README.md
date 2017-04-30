@@ -1,5 +1,4 @@
-# Simple Menu Laravel 
-[![Build Status](https://travis-ci.org/Spider-Tech/SimpleMenu.svg?branch=master)](https://travis-ci.org/Spider-Tech/SimpleMenu.svg?branch=master)
+# Simple Menu Laravel [![Build Status](https://travis-ci.org/Spider-Tech/SimpleMenu.svg?branch=master)](https://travis-ci.org/Spider-Tech/SimpleMenu.svg?branch=master) [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/Spider-Tech/SimpleMenu/issues)
 
 A quick and easy way to create menus in [Laravel 5](http://laravel.com/)
 
