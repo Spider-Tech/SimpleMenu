@@ -16,5 +16,6 @@
             "email": "spider_tech@email.com"
         }
     ],
+    "license": "MIT",
     "minimum-stability": "dev"
 }
