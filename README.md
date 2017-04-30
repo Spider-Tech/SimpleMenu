@@ -88,9 +88,10 @@ Yet to do
 
 ## Todo
 
-* create config file for menu
-* create a method in Facade to display the menu route
-* create a menu in array with clidren etc
-* assign the menu to default route 
+* create view file for menu
+* publish the view along with config file
+* configure dynamic depth in view file
+* create a method to return as html with essential classnames
+* find active and check active is working
 * add comments to all files
 * invoke BreadCrumbs 
