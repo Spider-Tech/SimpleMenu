@@ -8,10 +8,10 @@
 
 namespace noob\simple_menu_laravel;
 
+
 class SimpleMenu {
 
-    public function hello() {
-        return 'hello';
-    }
-
+ public function GetMenu(){
+  return controllers\MenuController::createMenu(config('menu'));
+ }
 }

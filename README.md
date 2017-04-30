@@ -54,6 +54,32 @@ At the end of `config/app.php` add `'SimpleMenu'    => 'noob\simple_menu_laravel
 
 This registers the package with Laravel and creates an alias called `SimpleMenu`.
 
+Now publish the config files and view files to the appropriate directory
+
+```bash
+php artisan vendor:publish
+```
+
+Once published two new files are created at config/menu.php
+
+```php
+<?php
+
+    'dash_board' => [
+        'title' => 'dashboard',
+        'url' => '/',
+        'order' => 2,
+        'children' => []
+    ],
+?>
+```
+
+and another one in the views folder at resources/views/Layouts/menu.blade.php
+```php
+To do
+```
+
+
 
 ## Functionality
 

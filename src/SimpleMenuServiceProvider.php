@@ -14,6 +14,10 @@ class SimpleMenuServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        
+          $this->publishes([
+              base_path('packages/noob/simple_menu_laravel/src/config/menu.php') => config_path('menu.php'),
+        ]);
     }
 
     /**
