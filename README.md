@@ -17,7 +17,7 @@ A quick and easy way to create menus in [Laravel 5](http://laravel.com/)
 
 
 ```bash
-composer require lavary/laravel-menu
+composer require noob/simple_menu_laravel
 ```
 
 Now, append Laravel Menu service provider to `providers` array in `config/app.php`.
