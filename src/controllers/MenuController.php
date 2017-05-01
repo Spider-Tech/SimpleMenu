@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 class MenuController extends Controller {
 
     protected static $items = null;
-    protected $current = null;
+    protected static $current = null;
     protected $currentkey = null;
 
     /**
@@ -45,24 +45,34 @@ class MenuController extends Controller {
         $finalArray = array();
         foreach ($array as $key => $value) {
             if (is_array($value)) {
-                $finalArray[$key] = array(self::SortWithDynamicDepth($value));
                 if ($key == 'children') {
-                    $finalArray[$key] = self::SortChildren($value);
+                    $finalArray[$key] = self::SortChildren($value, 'order');
+                    $value = $finalArray[$key];
+//                   unset($array);
                 }
-            } else {
+                    $finalArray[$key] = self::SortWithDynamicDepth($value);
+                } else {
+                if ($key == 'url') {
+                    //        $finalArray['active'] = self::CheckUrlActive($value);
+                }
                 $finalArray[$key] = $value;
             }
         }
         return $finalArray;
     }
 
-    public static function SortChildren($value) {
+    public static function SortChildren($value, $type) {
         $child = collect($value);
         if ($child->isNotEmpty()) {
-            return $child->sortBy('order')->toArray();
+            return $child->sortBy($type)->toArray();
         } else {
             return $child->toArray();
         }
+    }
+
+    public static function CheckUrlActive($url) {
+        print_r(self::$current);
+//        print_r($url);
     }
 
 }
