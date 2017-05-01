@@ -7,11 +7,20 @@
  */
 
 namespace noob\simple_menu_laravel;
-
+use Illuminate\Support\Facades\Request;
 
 class SimpleMenu {
 
- public function GetMenu(){
-  return controllers\MenuController::createMenu(config('menu'));
- }
+    protected $current = null;
+    protected $items = null;
+
+    public function __construct() {
+        $this->current = Request::path();
+        print_r($this->current);
+    }
+
+    public function GetMenu() {
+        return controllers\MenuController::createMenu(config('menu'), $this->current);
+    }
+
 }

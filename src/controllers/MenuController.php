@@ -26,9 +26,11 @@ class MenuController extends Controller {
      *
      * @return array
      */
-    public static function createMenu($arrayOfValues) {
+    public static function createMenu($arrayOfValues, $current) {
+        self::$current = $current;
         self::$items = collect($arrayOfValues);
-        return self::sort();
+        self::$items = self::sort();
+        return self::UpdateParentFromChild();
     }
 
     public static function sort() {
@@ -50,10 +52,10 @@ class MenuController extends Controller {
                     $value = $finalArray[$key];
 //                   unset($array);
                 }
-                    $finalArray[$key] = self::SortWithDynamicDepth($value);
-                } else {
+                $finalArray[$key] = self::SortWithDynamicDepth($value);
+            } else {
                 if ($key == 'url') {
-                    //        $finalArray['active'] = self::CheckUrlActive($value);
+                    $finalArray['active'] = self::CheckUrlActive($value);
                 }
                 $finalArray[$key] = $value;
             }
@@ -64,15 +66,44 @@ class MenuController extends Controller {
     public static function SortChildren($value, $type) {
         $child = collect($value);
         if ($child->isNotEmpty()) {
+            $child->each(function($k, $v) {
+                if ($k == 'url') {
+                    $child->put('active', self::CheckUrlActive($v));
+                }
+            });
             return $child->sortBy($type)->toArray();
         } else {
             return $child->toArray();
         }
     }
 
-    public static function CheckUrlActive($url) {
-        print_r(self::$current);
-//        print_r($url);
+    public static function CheckUrlActive($menuUrl) {
+        $url = trim(self::$current, '/');
+        if ($menuUrl === $url) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function UpdateParentFromChild() {
+        $collectionArray = collect(self::$items);
+        return $collectionArray->each(function($k, $v) {
+                    return self::UpdateParent($k);
+                });
+    }
+
+    public static function UpdateParent($array) {
+        $finalArray = array();
+        if (is_array($array)) {
+            print_r($array);
+            foreach ($array as $key => $value) {
+                if ($key['active'] == 'false') {
+                    $key['active'] = self::UpdateParent($value);
+                }
+            }
+        }
+        return $array;
     }
 
 }
