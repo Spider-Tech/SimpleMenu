@@ -16,7 +16,7 @@ class SimpleMenu {
 
     public function __construct() {
         $this->current = Request::path();
-        print_r($this->current);
+   
     }
 
     public function GetMenu() {
