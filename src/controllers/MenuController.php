@@ -26,7 +26,8 @@ class MenuController extends Controller {
         self::$current = $current;
         self::$items = collect($arrayOfValues);
         self::$items = self::sort();
-        return self::UpdateParent();
+      //  self::UpdateParent(self::$items);
+        return self::updateParent(self::$items);
     }
 
     public static function sort() {
@@ -37,15 +38,18 @@ class MenuController extends Controller {
 
     public static function SortWithDynamicDepth($array) {
         $finalArray = array();
+        $isActive = false;
         foreach ($array as $key => $value) {
             if (is_array($value)) {
                 $finalArray[$key] = self::SortChildren($value, 'order');
                 $value = $finalArray[$key];
                 $finalArray[$key] = self::SortWithDynamicDepth($value);
+                
             } else {
                 if ($key == 'url') {
                     $finalArray['active'] = self::CheckUrlActive($value);
                 }
+                
                 $finalArray[$key] = $value;
             }
         }
@@ -75,32 +79,11 @@ class MenuController extends Controller {
         }
     }
 
-    public static function UpdateParentFromChild($array) {
-        $collectiveArray = collect($array);
-        return $collectiveArray->every(function($k, $v) {
-                    if ($k == 'active')
-                        return $v;
-                    else
-                        return false;
-                });
-    }
+   public static function updateParent($array){
+      $array = array_reverse($array,true);
+      return $array;
+   }
 
-    public static function UpdateParent() {
-        $array = self::$items;
-       
-        foreach ($array as $key => $value) {
-            if (is_array($value)) {
-                $array = self::UpdateParent($value);
-            } else {
-                if ($key == "children") {
-                    if (self::UpdateParentFromChild($value))
-                        $array['active'] = true;
-                    else
-                        $array['active'] = false;
-                }
-            }
-        }
-        return $array;
-    }
+   
 
 }

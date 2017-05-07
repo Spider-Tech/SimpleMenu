@@ -1,5 +1,5 @@
 {
-    "name": "noob/simple_menu_laravel",
+    "name": "remeo/simple_menu_laravel",
     "description": "Simple menu for laravel which loads menu from config file",
     "keywords": ["laravel", "simple menu","menu"],
     "require": {
